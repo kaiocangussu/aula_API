@@ -2,6 +2,8 @@
 const resultado = document.getElementById('resultado')
 const campoBusca = document.getElementById('campoBusca')
 const btnBuscar = document.getElementById('btnBuscar')
+var pokemonAtual = 1;
+buscarPokemon(1)
 
 //const resultado = fetch(url)
 //                    .then(function (resultado) {
@@ -35,8 +37,6 @@ async function buscarPokemon(termo) {
     const url = "https://pokeapi.co/api/v2/pokemon/" + termo
     const resposta = await fetch(url)
     const pokemon = await resposta.json()
-    var pokemonAtual = 1;
-    buscarPokemon(1)
 
     resultado.innerHTML = ` 
         <img src="${pokemon.sprites.front_default}"/>
