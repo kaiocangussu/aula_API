@@ -2,6 +2,9 @@
 const resultado = document.getElementById('resultado')
 const campoBusca = document.getElementById('campoBusca')
 const btnBuscar = document.getElementById('btnBuscar')
+const btnAnterior = document.getElementById('btnAnterior')
+const btnAleatorio = document.getElementById('btnAleatorio')
+const btnProximo = document.getElementById('btnProximo')
 var pokemonAtual = 1;
 buscarPokemon(1)
 
@@ -61,7 +64,27 @@ campoBusca.addEventListener('keyup', evento => {
 
 })
 
+btnAnterior.addEventListener('click', () => {
 
+    pokemonAtual--
 
+    buscarPokemon(pokemonAtual)
 
+})
+
+btnProximo.addEventListener('click', () => {
+
+    pokemonAtual++
+
+    buscarPokemon(pokemonAtual)
+
+})
+
+btnAleatorio.addEventListener('click', () => {
+
+    pokemonAtual = Math.floor(Math.random() * 1025) + 1
+
+    buscarPokemon(pokemonAtual)
+
+})
 
