@@ -36,7 +36,7 @@ async function buscarPokemon(termo) {
     const resposta = await fetch(url)
     const pokemon = await resposta.json()
     var pokemonAtual = 1;
-    buscarPokemon = (1)
+    buscarPokemon(1)
 
     resultado.innerHTML = ` 
         <img src="${pokemon.sprites.front_default}"/>
