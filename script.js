@@ -39,15 +39,20 @@ buscarPokemon(pokemonAtual)
 async function buscarPokemon(termo) {
     const url = "https://pokeapi.co/api/v2/pokemon/" + termo
     const resposta = await fetch(url)
-    const pokemon = await resposta.json() 
+    if (resposta.ok) {
+        const pokemon = await resposta.json() 
 
-    pokemonAtual = pokemon.id
-    resultado.innerHTML = ` 
-        <img src="${pokemon.sprites.front_default}"/>
-        <p>#${pokemon.id}</p>
-        <h2>${pokemon.name}</h2>
+        pokemonAtual = pokemon.id
+        resultado.innerHTML = ` 
+            <img src="${pokemon.sprites.front_default}"/>
+            <p>#${pokemon.id}</p>
+            <h2>${pokemon.name}</h2>
+    
+        `
+    } else {
+        resultado.innerHTML = '<h2>Pokemon não encontrado<h2>'
+    }
 
-    `
 
 }
 
@@ -55,8 +60,10 @@ btnBuscar.addEventListener('click', () => {
     console.log("Fui clicado buscando pokemon " + campoBusca.value)
     pokemonAtual = campoBusca.value
     buscarPokemon(pokemonAtual)
+  
 
 });
+
 campoBusca.addEventListener('keyup', evento => {
     if (evento.key == "Enter") {
         btnBuscar.click()
@@ -67,19 +74,20 @@ campoBusca.addEventListener('keyup', evento => {
 })
 
 btnAnterior.addEventListener('click', () => {
+    if (pokemonAtual > 1) {
     console.log('buscando Pokemon anterior')
     pokemonAtual--
-
     buscarPokemon(pokemonAtual)
-
+    }
 })
 
 btnProximo.addEventListener('click', () => {
+    if (pokemonAtual < 1025) {
     console.log('buscando proximo Pokemon')
     pokemonAtual++
 
     buscarPokemon(pokemonAtual)
-
+    }
 })
 
 btnAleatorio.addEventListener('click', () => {
@@ -89,4 +97,7 @@ btnAleatorio.addEventListener('click', () => {
     buscarPokemon(pokemonAtual)
 
 })
+
+
+
 
