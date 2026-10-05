@@ -7,16 +7,37 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
   </head>
-  <body class="bg-light">
-    <h1>Pokedex</h1>
-    <input type="text" id="campoBusca" placeholder="Nome ou Número">
-    <button id="btnBuscar">Buscar</button>
-
-    <div id="resultado"></div>
-
-    <button id="btnAnterior">Anterior</button>
-    <button id="btnAleatorio">Aleatorio</button>
-    <button id="btnProximo">Proximo</button>
+  <body>
+    
+    <section class="pokedex">
+      <div class="pokemon-card">
+  
+        <h1 class="logo-pokedex">
+       <span class="pokeball"></span>
+        <span>Pokédex</span>
+       </h1>   
+        <input type="text" id="campoBusca" placeholder="Nome ou Número">
+        <button id="btnBuscar">Buscar</button>
+    
+        <div id="resultado"></div>
+    
+        <button id="btnAnterior">Anterior</button>
+        <button id="btnAleatorio">Aleatorio</button>
+        <button id="btnProximo">Proximo</button>
+  
+      </div>
+        <div class="pokemon-card">
+  
+          <h2>Pikachu</h2>
+  
+          <p>Altura: 0,4 m</p>
+          <p>Peso: 6 kg</p>
+          <p>Tipo: Elétrico</p>
+        </div>
+    </section>
+    
+      
+    
 
     <script src="script.js"></script>
 

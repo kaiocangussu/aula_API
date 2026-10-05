@@ -55,6 +55,7 @@ async function buscarPokemon(termo) {
 
 
 }
+const tiposPT = { normal: "Normal", fire: "Fogo", water: "Água", electric: "Elétrico", grass: "Planta", ice: "Gelo", fighting: "Lutador", poison: "Veneno", ground: "Terrestre", flying: "Voador", psychic: "Psíquico", bug: "Inseto", rock: "Pedra", ghost: "Fantasma", dragon: "Dragão", dark: "Sombrio", steel: "Aço", fairy: "Fada" };
 
 btnBuscar.addEventListener('click', () => {
     console.log("Fui clicado buscando pokemon " + campoBusca.value)
