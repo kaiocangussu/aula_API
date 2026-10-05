@@ -43,12 +43,36 @@ async function buscarPokemon(termo) {
         const pokemon = await resposta.json() 
 
         pokemonAtual = pokemon.id
-        resultado.innerHTML = ` 
-            <img src="${pokemon.sprites.front_default}"/>
-            <p>#${pokemon.id}</p>
-            <h2>${pokemon.name}</h2>
-    
-        `
+      const tipos = pokemon.types.map(tipo => tipo.type.name);
+
+    const imagemAnimada =
+    pokemon.sprites?.versions?.["generation-v"]?.["black-white"]?.animated?.front_default ||
+    pokemon.sprites.front_default;
+// https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/001.png
+resultado.innerHTML = `
+    <div class="pokemon-card">
+
+        <img src="https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/${String(pokemon.id).padStart(3, '0')}.png"/>
+
+        <p>#${pokemon.id}</p>
+
+        <h2>${pokemon.name}</h2>
+
+        <div class="pokemon-tipos">
+           ${tipos.map(tipo => `
+          <span class="tipo ${tipo}">
+          ${tiposPT[tipo]}
+          </span>
+         `).join("")}
+        </div>
+
+        <div class="pokemon-info">
+            <p>Altura: ${pokemon.height / 10} m</p>
+            <p>Peso: ${pokemon.weight / 10} kg</p>
+        </div>
+
+    </div>
+`;
     } else {
         resultado.innerHTML = '<h2>Pokemon não encontrado<h2>'
     }
