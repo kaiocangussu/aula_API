@@ -5,4 +5,5 @@ body {
 }
 h1 {
 justify-content: center;
+background-color: oklch(58.6% 0.253 17.585);
 }
